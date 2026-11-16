@@ -1,0 +1,35 @@
+{
+  "name": "my-pi",
+  "version": "0.1.0",
+  "description": "Personal pi extensions: provider usage limits in the footer, orchestrator mode, and herdr-backed subagents",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "Roman Soriano",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Narwhai/my-pi.git"
+  },
+  "keywords": [
+    "pi-package"
+  ],
+  "scripts": {
+    "link-pi-types": "ln -sfn \"$HOME/.pi/agent/install/releases/$(cat \"$HOME/.pi/agent/install/current-version\")/node_modules\" .pi-types",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "pi": {
+    "extensions": [
+      "./extensions/*.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*",
+    "typebox": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
+}

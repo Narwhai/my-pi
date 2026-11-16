@@ -1,0 +1,3 @@
+node_modules/
+# Symlink to the local pi install for type resolution; see README.
+.pi-types

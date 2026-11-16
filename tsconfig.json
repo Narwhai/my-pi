@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noEmit": true,
+    "target": "es2022",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "@earendil-works/pi-ai": [
+        "./.pi-types/@earendil-works/pi-ai/dist/index.d.ts"
+      ],
+      "@earendil-works/pi-coding-agent": [
+        "./.pi-types/@earendil-works/pi-coding-agent/dist/index.d.ts"
+      ],
+      "@earendil-works/pi-tui": [
+        "./.pi-types/@earendil-works/pi-tui/dist/index.d.ts"
+      ],
+      "typebox": [
+        "./.pi-types/typebox/build/index.d.mts"
+      ],
+      "@earendil-works/*": [
+        "./.pi-types/@earendil-works/*/dist/index.d.ts"
+      ]
+    }
+  },
+  "include": [
+    "extensions/**/*.ts"
+  ]
+}
