@@ -32,6 +32,8 @@ const STATE_ENTRY = "orchestrator-state";
 const STATUS_KEY = "orchestrator";
 const SECTION_KEY = "orchestrator_mode";
 const CONFIG_PATH = join(getAgentDir(), "orchestrator.json");
+// Set by herdr-subagent.ts for child Pi processes. Duplicated on purpose to keep the extensions decoupled.
+const SUBAGENT_CHILD_ENV = "PI_HERDR_SUBAGENT_CHILD";
 
 function isRecord(value: unknown): value is Record<string, unknown> {
 	return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -122,6 +124,9 @@ Finish
 }
 
 export default function (pi: ExtensionAPI) {
+	// Subagent children are implementers, not orchestrators: no prompt section, no model override, no command.
+	if (process.env[SUBAGENT_CHILD_ENV] === "1") return;
+
 	let state: SessionState = { enabled: true, override: undefined };
 
 	const effectiveModel = (): ModelRef => {

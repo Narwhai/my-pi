@@ -51,6 +51,7 @@ These are unofficial endpoints and may change.
 - `/orchestrator on | off | status`
 - `/orchestrator model [provider/id]`, `/orchestrator model reset`: session subagent model.
 - `/orchestrator default [provider/id]`: global default, stored in `~/.pi/agent/orchestrator.json`.
+- Inactive in `herdr-subagent` child processes (`PI_HERDR_SUBAGENT_CHILD=1`), so children implement instead of trying to delegate.
 
 ## Development
 
